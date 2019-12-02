@@ -8,12 +8,12 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox spacing="10.0" stylesheets="@../styles/qrcode-gen.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.QRCodeGen">
+<VBox spacing="10.0" stylesheets="@../styles/qrcode-gen.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.houarizegai.qrcodegenfx.controllers.QRCodeGenController">
    <children>
       <VBox fillWidth="false" spacing="15.0" styleClass="box-header">
          <children>
             <Label styleClass="box-title" text="Inputs" />
-            <TextArea fx:id="inputArea" prefHeight="150.0" promptText="Type your text here.." styleClass="box-area" />
+            <TextArea fx:id="areaInput" prefHeight="150.0" promptText="Type your text here.." styleClass="box-area" />
          </children>
          <padding>
             <Insets bottom="15.0" left="10.0" right="10.0" top="10.0" />

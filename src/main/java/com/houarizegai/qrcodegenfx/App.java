@@ -10,13 +10,17 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class App extends Application {
+    public static Stage stage;
+
     @Override
     public void start(Stage stage) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource(""));
+            Parent root = FXMLLoader.load(getClass().getResource("/fxml/QRCodeGen.fxml"));
 
             stage.setScene(new Scene(root));
             stage.setTitle("QR Code Generator");
+
+            App.stage = stage;
             stage.show();
         } catch(IOException ioe) {
             ioe.printStackTrace();
