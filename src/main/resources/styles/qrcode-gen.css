@@ -1,0 +1,32 @@
+* {
+    -fx-font-family: Tahoma
+}
+
+.root {
+    -fx-background-color: #FFF
+}
+
+.box-header {
+    -fx-background-color: #EFEFEF;
+    -fx-effect: dropshadow(three-pass-box, rgba(100,100,100,1), 2, 0, 0, 0);
+    -fx-background-radius: 2;
+}
+
+.box-title {
+    -fx-font-size: 16px;
+    -fx-text-fill: #666;
+}
+
+.box-area {
+    -fx-font-size: 15px;
+}
+
+.btn {
+    -fx-pref-width: 100px;
+    -fx-pref-height: 35px;
+    -fx-font-size: 16px;
+    -fx-background-color: #999;
+    -fx-text-fill: #FFF;
+    -jfx-button-type: RAISED;
+    -fx-cursor: hand
+}
