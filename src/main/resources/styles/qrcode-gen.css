@@ -6,6 +6,11 @@
     -fx-background-color: #FFF
 }
 
+.title {
+    -fx-font-size: 20px;
+    -fx-text-fill: linear-gradient(from 0% 0% to 100% 200%, repeat, aqua 0%, #2196f3 50%)
+}
+
 .box-header {
     -fx-background-color: #EFEFEF;
     -fx-effect: dropshadow(three-pass-box, rgba(100,100,100,1), 2, 0, 0, 0);
@@ -14,7 +19,7 @@
 
 .box-title {
     -fx-font-size: 16px;
-    -fx-text-fill: #666;
+    -fx-text-fill: linear-gradient(from 0% 0% to 100% 200%, repeat, aqua 0%, #2196f3 50%);
 }
 
 .box-area {
@@ -29,4 +34,21 @@
     -fx-text-fill: #FFF;
     -jfx-button-type: RAISED;
     -fx-cursor: hand
+}
+
+.btn-success {
+    -fx-background-color: #4285f4;
+}
+
+.btn-primary {
+    -fx-background-color: #FF8800;
+}
+
+.field-size {
+    -fx-pref-width: 80px;
+    -fx-pref-height: 35px;
+    -fx-font-size: 15px;
+    -jfx-label-float: true;
+    -jfx-unfocus-color: #666;
+    -jfx-focus-color: #2196f3;
 }

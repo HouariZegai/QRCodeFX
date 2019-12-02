@@ -1,42 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox spacing="10.0" stylesheets="@../styles/qrcode-gen.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.houarizegai.qrcodegenfx.controllers.QRCodeGenController">
+<VBox prefWidth="500.0" spacing="10.0" stylesheets="@../styles/qrcode-gen.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.houarizegai.qrcodegenfx.controllers.QRCodeGenController">
    <children>
-      <VBox fillWidth="false" spacing="15.0" styleClass="box-header">
+      <Label styleClass="title" text="QRCode Generator" />
+      <HBox spacing="10.0" styleClass="box-header">
          <children>
-            <Label styleClass="box-title" text="Inputs" />
-            <TextArea fx:id="areaInput" prefHeight="150.0" promptText="Type your text here.." styleClass="box-area" />
+            <Label styleClass="box-title" text="Input" />
+            <TextArea fx:id="areaInput" prefHeight="150.0" prefWidth="100.0" promptText="Type your text here.." styleClass="box-area" wrapText="true" HBox.hgrow="ALWAYS" />
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </HBox>
+      <StackPane>
+         <children>
+            <HBox maxWidth="-Infinity" spacing="10.0" StackPane.alignment="CENTER_LEFT">
+               <children>
+                  <JFXTextField fx:id="fieldWidth" promptText="Width" styleClass="field-size" />
+                  <JFXTextField fx:id="fieldHeight" promptText="Height" styleClass="field-size" />
+                  <JFXButton onAction="#onGenerate" text="Generate">
+                     <styleClass>
+                        <String fx:value="btn" />
+                        <String fx:value="btn-success" />
+                     </styleClass>
+                  </JFXButton>
+               </children>
+            </HBox>
+            <JFXButton onAction="#onExport" text="Export" StackPane.alignment="CENTER_RIGHT">
+               <styleClass>
+                  <String fx:value="btn" />
+                  <String fx:value="btn-primary" />
+               </styleClass>
+            </JFXButton>
+         </children>
+         <VBox.margin>
+            <Insets top="20.0" />
+         </VBox.margin>
+      </StackPane>
+      <HBox spacing="10.0" styleClass="box-header" VBox.vgrow="ALWAYS">
+         <children>
+            <Label styleClass="box-title" text="Output" />
+            <ImageView fx:id="imgQRCode" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
          </children>
          <padding>
-            <Insets bottom="15.0" left="10.0" right="10.0" top="10.0" />
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
-      </VBox>
-      <HBox spacing="10.0">
-         <children>
-            <VBox spacing="10.0">
-               <children>
-                  <JFXButton onAction="#onGenerate" styleClass="btn" text="Generate" />
-                  <JFXButton onAction="#onExport" styleClass="btn" text="Export" />
-               </children>
-            </VBox>
-            <HBox spacing="10.0" styleClass="box-header" HBox.hgrow="ALWAYS">
-               <children>
-                  <Label styleClass="box-title" text="Output" />
-                  <ImageView fx:id="imgQRCode" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-               </children>
-               <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </padding>
-            </HBox>
-         </children>
       </HBox>
    </children>
    <padding>
