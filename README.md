@@ -10,9 +10,9 @@
 * Java 8
 
 #### Screenshoot
-| Prayer times        |
+| Main App  |
 |:-------------------:|
-| ![Screenshoot](screenshots/qrcode_gen.PNG) |
+| ![Screenshot](screenshots/qrcode_gen.PNG) |
 
 #### Contributing 💡
 If you want to contribute to this project and make it better with new ideas, your pull request is very welcomed.
