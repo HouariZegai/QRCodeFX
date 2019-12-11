@@ -1,18 +1,23 @@
 package com.houarizegai.qrcodegenfx.engine;
 
-import com.google.zxing.BarcodeFormat;
-import com.google.zxing.WriterException;
+import com.google.zxing.*;
+import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
 import com.google.zxing.common.BitMatrix;
+import com.google.zxing.common.HybridBinarizer;
 import com.google.zxing.qrcode.QRCodeWriter;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.image.Image;
+import org.omg.CosNaming.NamingContextPackage.NotFound;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.FileInputStream;
+import java.io.IOException;
 
 public class QRCodeEngine {
 
-    public static Image qrCodeGen(String data, int width, int height) {
+    public static Image encode(String data, int width, int height) {
         try {
             BitMatrix byteMatrix = new QRCodeWriter().encode(data, BarcodeFormat.QR_CODE, width, height);
             BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
@@ -34,5 +39,19 @@ public class QRCodeEngine {
             ex.printStackTrace();
             return null;
         }
+    }
+
+    public static String decode(Image image) {
+        BinaryBitmap binaryBitmap = new BinaryBitmap(new HybridBinarizer(
+                new BufferedImageLuminanceSource(SwingFXUtils.fromFXImage(image, null))));
+
+        try {
+            Result qrCodeResult = new MultiFormatReader().decode(binaryBitmap);
+            return qrCodeResult.getText();
+        } catch(NotFoundException nfe) {
+            System.out.println("Not found Exception!");
+            return null;
+        }
+
     }
 }
