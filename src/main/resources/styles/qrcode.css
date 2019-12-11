@@ -11,6 +11,46 @@
     -fx-text-fill: linear-gradient(from 0% 0% to 100% 200%, repeat, aqua 0%, #2196f3 50%)
 }
 
+/* Start jfxtabpane */
+
+.tab-title {
+    -fx-padding: 5px 0;
+}
+
+.jfx-tab-pane .headers-region {
+    -fx-background-color: transparent;
+}
+
+.jfx-tab-pane .tab-header-background {
+    -fx-background-color: #EEE;
+}
+
+.jfx-tab-pane .tab-selected-line {
+    -fx-background-color: #2196f3;
+}
+
+.jfx-tab-pane .tab {
+    -fx-cursor: hand;
+}
+
+.jfx-tab-pane .tab .tab-label {
+    -fx-alignment: CENTER;
+    -fx-font-family: Tahoma;
+    -fx-text-fill: #2196f3;
+    -fx-font-size: 16px;
+    -fx-font-weight: normal;
+}
+
+.tab:selected .tab-label {
+    -fx-alignment: CENTER;
+    -fx-font-family: Tahoma;
+    -fx-text-fill: #2196f3;
+    -fx-font-size: 16px;
+    -fx-font-weight: normal;
+}
+
+/* End jfxtabpane */
+
 .box-header {
     -fx-background-color: #EFEFEF;
     -fx-effect: dropshadow(three-pass-box, rgba(100,100,100,1), 2, 0, 0, 0);
@@ -51,4 +91,23 @@
     -jfx-label-float: true;
     -jfx-unfocus-color: #666;
     -jfx-focus-color: #2196f3;
+}
+
+/* Start JFXSnackbar (toast) */
+
+.jfx-snackbar-content {
+    -fx-background-color: #F00;
+    -fx-padding: 0 20px 0 20px
+}
+.jfx-snackbar-toast {
+    -fx-text-fill: #FFF;
+    -fx-font-size: 18px;
+    -fx-font-family: Tahoma
+}
+
+/* End JFXSnackbar (toast) */
+
+.footer-text {
+    -fx-font-size: 14px;
+    -fx-text-fill: #777
 }

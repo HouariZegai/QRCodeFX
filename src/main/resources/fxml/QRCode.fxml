@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="root" alignment="TOP_CENTER" prefWidth="510.0" spacing="10.0" stylesheets="@../styles/qrcode.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.houarizegai.qrcodefx.controllers.QRCodeController">
+   <children>
+      <Label styleClass="title" text="QR Code" />
+      <JFXTabPane tabMinWidth="169.0" VBox.vgrow="ALWAYS">
+         <tabs>
+            <Tab style="-fx-pref-width: 240px;" styleClass="tab-title" text="Generator">
+               <content>
+                  <VBox spacing="10.0">
+                     <children>
+                        <HBox spacing="10.0" styleClass="box-header">
+                           <children>
+                              <Label styleClass="box-title" text="Input" />
+                              <TextArea fx:id="areaInputGen" prefHeight="150.0" prefWidth="100.0" promptText="Type your text here.." styleClass="box-area" wrapText="true" HBox.hgrow="ALWAYS" />
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </HBox>
+                        <StackPane>
+                           <children>
+                              <HBox maxWidth="-Infinity" spacing="10.0" StackPane.alignment="CENTER_LEFT">
+                                 <children>
+                                    <JFXTextField fx:id="fieldWidthGen" promptText="Width" styleClass="field-size" />
+                                    <JFXTextField fx:id="fieldHeightGen" promptText="Height" styleClass="field-size" />
+                                    <JFXButton onAction="#onGenerate" text="Generate">
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="btn-success" />
+                                       </styleClass>
+                                    </JFXButton>
+                                 </children>
+                              </HBox>
+                              <JFXButton onAction="#onExportGen" text="Export" StackPane.alignment="CENTER_RIGHT">
+                                 <styleClass>
+                                    <String fx:value="btn" />
+                                    <String fx:value="btn-primary" />
+                                 </styleClass>
+                              </JFXButton>
+                           </children>
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                        </StackPane>
+                        <HBox spacing="10.0" styleClass="box-header">
+                           <children>
+                              <Label styleClass="box-title" text="Output" />
+                              <ImageView fx:id="imgQRCodeGen" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                  </VBox>
+               </content>
+            </Tab>
+            <Tab style="-fx-pref-width: 240px;" styleClass="tab-title" text="Reader">
+               <content>
+                  <VBox spacing="10.0">
+                     <children>
+                        <StackPane>
+                           <children>
+                              <HBox spacing="10.0" styleClass="box-header">
+                                 <children>
+                                    <Label styleClass="box-title" text="Input" />
+                                    <ImageView fx:id="imgQRCodeReader" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </HBox>
+                              <JFXButton onAction="#onLoadReader" text="Load" StackPane.alignment="TOP_RIGHT">
+                                 <styleClass>
+                                    <String fx:value="btn" />
+                                    <String fx:value="btn-success" />
+                                 </styleClass>
+                                 <StackPane.margin>
+                                    <Insets right="10.0" top="10.0" />
+                                 </StackPane.margin>
+                              </JFXButton>
+                           </children>
+                        </StackPane>
+                        <StackPane>
+                           <children>
+                              <JFXButton onAction="#onRead" style="-fx-background-color: #04bb2b;" styleClass="btn" text="Read" StackPane.alignment="CENTER_LEFT" />
+                              <JFXButton onAction="#onExportReader" text="Export" StackPane.alignment="CENTER_RIGHT">
+                                 <styleClass>
+                                    <String fx:value="btn" />
+                                    <String fx:value="btn-primary" />
+                                 </styleClass>
+                              </JFXButton>
+                           </children>
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                        </StackPane>
+                        <HBox spacing="10.0" styleClass="box-header">
+                           <children>
+                              <Label styleClass="box-title" text="Output" />
+                              <TextArea fx:id="areaResultReader" prefHeight="150.0" prefWidth="100.0" promptText="Type your text here.." styleClass="box-area" wrapText="true" HBox.hgrow="ALWAYS" />
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                  </VBox>
+               </content>
+            </Tab>
+         </tabs>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </JFXTabPane>
+      <Label styleClass="footer-text" text="Houari Zegai © All right reserved" />
+   </children>
+   <padding>
+      <Insets bottom="10.0" top="20.0" />
+   </padding>
+</VBox>
