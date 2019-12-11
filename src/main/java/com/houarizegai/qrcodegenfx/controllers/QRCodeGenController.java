@@ -4,12 +4,14 @@ import com.houarizegai.qrcodegenfx.App;
 import com.houarizegai.qrcodegenfx.engine.QRCodeEngine;
 import com.houarizegai.qrcodegenfx.global.FXTools;
 import com.houarizegai.qrcodegenfx.global.Utils;
+import com.jfoenix.controls.JFXSnackbar;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 
 import java.io.File;
@@ -19,53 +21,115 @@ import java.util.ResourceBundle;
 public class QRCodeGenController implements Initializable {
 
     @FXML
-    private TextArea areaInput;
+    private VBox root;
+
+    /* Start generator attributes */
+    @FXML
+    private TextArea areaInputGen;
 
     @FXML
-    private JFXTextField fieldWidth, fieldHeight;
+    private JFXTextField fieldWidthGen, fieldHeightGen;
 
     @FXML
-    private ImageView imgQRCode;
+    private ImageView imgQRCodeGen;
 
-    private FileChooser fileChooser;
-
-    // QRCode generated
-    private Image genQRCodeImg;
+    private Image genQRCodeImg; // Generated QR Code image
     
+    /* End generator attributes */
+
+    /* Start reader attributes */
+
+    @FXML
+    private ImageView imgQRCodeReader;
+
+    @FXML
+    private TextArea areaResultReader;
+
+    /* End reader attributes */
+
+    private FileChooser imageChooser;
+    private FileChooser pngImageSaveChooser;
+
+    private JFXSnackbar toastError;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // Make fields accept numbers only
-        FXTools.fieldAcceptNumbersOnly(fieldWidth);
-        FXTools.fieldAcceptNumbersOnly(fieldHeight);
+        FXTools.fieldAcceptNumbersOnly(fieldWidthGen);
+        FXTools.fieldAcceptNumbersOnly(fieldHeightGen);
 
         // Init fields
-        fieldWidth.setText("200");
-        fieldHeight.setText("200");
+        fieldWidthGen.setText("200");
+        fieldHeightGen.setText("200");
 
         // Init file chooser
-        fileChooser = new FileChooser();
+        pngImageSaveChooser = new FileChooser();
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Image (*.png)", "*.png ");
-        fileChooser.getExtensionFilters().add(extFilter);
+        pngImageSaveChooser.getExtensionFilters().add(extFilter);
+
+        // Init File chooser for image
+        imageChooser = new FileChooser();
+        imageChooser.setTitle("Select Image File");
+        imageChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image File", "*.png", "*.jpg", "*.jpeg"));
+
+        // Init toast
+        toastError = new JFXSnackbar(root);
     }
+
+    /* Start generator methods */
 
     @FXML
     public void onGenerate() {
-        genQRCodeImg = QRCodeEngine.qrCodeGen(areaInput.getText(), Integer.parseInt(fieldWidth.getText()), Integer.parseInt(fieldHeight.getText()));
+        genQRCodeImg = QRCodeEngine.encode(areaInputGen.getText(), Integer.parseInt(fieldWidthGen.getText()), Integer.parseInt(fieldHeightGen.getText()));
         if(genQRCodeImg != null)
-            imgQRCode.setImage(genQRCodeImg);
+            imgQRCodeGen.setImage(genQRCodeImg);
     }
 
     @FXML
-    public void onExport() {
+    public void onExportGen() {
         if(genQRCodeImg == null)
             return;
         
         // Choose path of save
-        File file = fileChooser.showSaveDialog(App.stage);
-
+        File file = pngImageSaveChooser.showSaveDialog(App.stage);
         // Write in a file
         if (file != null) {
             Utils.writeImage(genQRCodeImg, "png", file);
         }
     }
+
+    /* End generator methods */
+
+    /* Start reader methods */
+
+    @FXML
+    public void onLoadReader() {
+        File file = imageChooser.showOpenDialog(App.stage);
+
+        if(file != null) {
+            areaResultReader.setText(null);
+            imgQRCodeReader.setImage(new Image(file.toURI().toString()));
+        }
+    }
+
+    @FXML
+    public void onRead() {
+        if(imgQRCodeReader.getImage() == null) {
+            toastError.show("Please, load an image to read it!", 1500);
+            return;
+        }
+
+        String decodedText = QRCodeEngine.decode(imgQRCodeReader.getImage());
+        if(decodedText == null) {
+            toastError.show("Error decoding QR Code image!", 1500);
+        } else
+            areaResultReader.setText(decodedText);
+    }
+
+    @FXML
+    public void onExportReader() {
+
+    }
+
+    /* End reader methods */
 }
