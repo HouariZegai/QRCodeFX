@@ -14,7 +14,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/fxml/QRCodeGen.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/fxml/QRCode.fxml"));
 
             stage.setScene(new Scene(root));
             stage.setTitle("QR Code");

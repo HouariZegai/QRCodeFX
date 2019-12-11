@@ -36,7 +36,7 @@
 .jfx-tab-pane .tab .tab-label {
     -fx-alignment: CENTER;
     -fx-font-family: Tahoma;
-    -fx-text-fill: linear-gradient(from 0% 0% to 100% 200%, repeat, aqua 0%, #2196f3 50%);
+    -fx-text-fill: #2196f3;
     -fx-font-weight: normal;
 }
 
