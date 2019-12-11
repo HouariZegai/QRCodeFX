@@ -71,7 +71,7 @@
                         <Insets top="10" />
                      </VBox.margin>
                      <padding>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                        <Insets left="20.0" right="20.0" top="20.0" />
                      </padding>
                   </VBox>
                </content>
@@ -130,7 +130,7 @@
                         <Insets top="10" />
                      </VBox.margin>
                      <padding>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                        <Insets left="20.0" right="20.0" top="20.0" />
                      </padding>
                   </VBox>
                </content>
@@ -143,8 +143,9 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </JFXTabPane>
+      <Label styleClass="footer-text" text="Houari Zegai © All right reserved" />
    </children>
    <padding>
-      <Insets top="20.0" />
+      <Insets bottom="10.0" top="20.0" />
    </padding>
 </VBox>

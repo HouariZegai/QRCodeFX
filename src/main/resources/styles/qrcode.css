@@ -37,6 +37,15 @@
     -fx-alignment: CENTER;
     -fx-font-family: Tahoma;
     -fx-text-fill: #2196f3;
+    -fx-font-size: 16px;
+    -fx-font-weight: normal;
+}
+
+.tab:selected .tab-label {
+    -fx-alignment: CENTER;
+    -fx-font-family: Tahoma;
+    -fx-text-fill: #2196f3;
+    -fx-font-size: 16px;
     -fx-font-weight: normal;
 }
 
@@ -97,3 +106,8 @@
 }
 
 /* End JFXSnackbar (toast) */
+
+.footer-text {
+    -fx-font-size: 14px;
+    -fx-text-fill: #777
+}
