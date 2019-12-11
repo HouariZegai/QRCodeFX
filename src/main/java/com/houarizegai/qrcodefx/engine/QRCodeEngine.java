@@ -1,4 +1,4 @@
-package com.houarizegai.qrcodegenfx.engine;
+package com.houarizegai.qrcodefx.engine;
 
 import com.google.zxing.*;
 import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
@@ -7,13 +7,9 @@ import com.google.zxing.common.HybridBinarizer;
 import com.google.zxing.qrcode.QRCodeWriter;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.image.Image;
-import org.omg.CosNaming.NamingContextPackage.NotFound;
 
-import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.FileInputStream;
-import java.io.IOException;
 
 public class QRCodeEngine {
 

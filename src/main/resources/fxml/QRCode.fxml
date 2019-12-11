@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="root" alignment="TOP_CENTER" prefWidth="510.0" spacing="10.0" stylesheets="@../styles/qrcode.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.houarizegai.qrcodegenfx.controllers.QRCodeController">
+<VBox fx:id="root" alignment="TOP_CENTER" prefWidth="510.0" spacing="10.0" stylesheets="@../styles/qrcode.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.houarizegai.qrcodefx.controllers.QRCodeController">
    <children>
       <Label styleClass="title" text="QR Code" />
       <JFXTabPane tabMinWidth="169.0" VBox.vgrow="ALWAYS">

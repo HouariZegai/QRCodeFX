@@ -1,9 +1,9 @@
-package com.houarizegai.qrcodegenfx.controllers;
+package com.houarizegai.qrcodefx.controllers;
 
-import com.houarizegai.qrcodegenfx.App;
-import com.houarizegai.qrcodegenfx.engine.QRCodeEngine;
-import com.houarizegai.qrcodegenfx.global.FXTools;
-import com.houarizegai.qrcodegenfx.global.Utils;
+import com.houarizegai.qrcodefx.App;
+import com.houarizegai.qrcodefx.engine.QRCodeEngine;
+import com.houarizegai.qrcodefx.global.FXTools;
+import com.houarizegai.qrcodefx.global.Utils;
 import com.jfoenix.controls.JFXSnackbar;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;

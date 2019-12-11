@@ -12,7 +12,7 @@
 #### Screenshoot
 | Prayer times        |
 |:-------------------:|
-| ![Screenshoot](screenshots/qrcode_gen.PNG) |
+| ![Screenshoot](screenshots/v0/qrcode_gen.PNG) |
 
 #### Contributing 💡
 If you want to contribute to this project and make it better with new ideas, your pull request is very welcomed.

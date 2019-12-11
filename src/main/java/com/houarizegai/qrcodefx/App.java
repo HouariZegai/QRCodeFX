@@ -1,4 +1,4 @@
-package com.houarizegai.qrcodegenfx;
+package com.houarizegai.qrcodefx;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
