@@ -49,6 +49,7 @@ public class QRCodeGenController implements Initializable {
 
     private FileChooser imageChooser;
     private FileChooser pngImageSaveChooser;
+    private FileChooser textSaveChooser;
 
     private JFXSnackbar toastError;
 
@@ -58,22 +59,27 @@ public class QRCodeGenController implements Initializable {
         FXTools.fieldAcceptNumbersOnly(fieldWidthGen);
         FXTools.fieldAcceptNumbersOnly(fieldHeightGen);
 
+        // Init toast error message
+        toastError = new JFXSnackbar(root);
+
         // Init fields
         fieldWidthGen.setText("200");
         fieldHeightGen.setText("200");
 
         // Init file chooser
         pngImageSaveChooser = new FileChooser();
-        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Image (*.png)", "*.png ");
-        pngImageSaveChooser.getExtensionFilters().add(extFilter);
+        pngImageSaveChooser.setTitle("Save Image");
+        pngImageSaveChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image (*.png)", "*.png "));
 
         // Init File chooser for image
         imageChooser = new FileChooser();
         imageChooser.setTitle("Select Image File");
         imageChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image File", "*.png", "*.jpg", "*.jpeg"));
 
-        // Init toast
-        toastError = new JFXSnackbar(root);
+        // Init File chooser for saving text
+        textSaveChooser = new FileChooser();
+        textSaveChooser.setTitle("Select Saving File");
+        textSaveChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text File (*.txt)", "*.txt"));
     }
 
     /* Start generator methods */
@@ -94,7 +100,7 @@ public class QRCodeGenController implements Initializable {
         File file = pngImageSaveChooser.showSaveDialog(App.stage);
         // Write in a file
         if (file != null) {
-            Utils.writeImage(genQRCodeImg, "png", file);
+            Utils.exportImage(genQRCodeImg, "png", file);
         }
     }
 
@@ -128,7 +134,15 @@ public class QRCodeGenController implements Initializable {
 
     @FXML
     public void onExportReader() {
+        if(areaResultReader.getText() == null && areaResultReader.getText().trim().isEmpty())
+            return;
 
+        // Choose path of save
+        File file = textSaveChooser.showSaveDialog(App.stage);
+        // Write in a file
+        if (file != null) {
+            Utils.exportText(areaResultReader.getText().trim(), file);
+        }
     }
 
     /* End reader methods */
