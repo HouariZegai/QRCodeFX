@@ -4,6 +4,7 @@ import com.houarizegai.qrcodefx.App;
 import com.houarizegai.qrcodefx.engine.QRCodeEngine;
 import com.houarizegai.qrcodefx.global.FXTools;
 import com.houarizegai.qrcodefx.global.Utils;
+import com.jfoenix.controls.JFXColorPicker;
 import com.jfoenix.controls.JFXSnackbar;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
@@ -29,6 +30,9 @@ public class QRCodeController implements Initializable {
 
     @FXML
     private JFXTextField fieldWidthGen, fieldHeightGen;
+
+    @FXML
+    private JFXColorPicker colorPickerForeground, colorPickerBackground;
 
     @FXML
     private ImageView imgQRCodeGen;
@@ -86,9 +90,13 @@ public class QRCodeController implements Initializable {
 
     @FXML
     public void onGenerate() {
-        genQRCodeImg = QRCodeEngine.encode(areaInputGen.getText(), Integer.parseInt(fieldWidthGen.getText()), Integer.parseInt(fieldHeightGen.getText()));
-        if(genQRCodeImg != null)
+        String foregroundColor = FXTools.toRGBCode(colorPickerForeground.getValue());
+        String backgroundColor = FXTools.toRGBCode(colorPickerBackground.getValue());
+
+        genQRCodeImg = QRCodeEngine.encode(areaInputGen.getText(), Integer.parseInt(fieldWidthGen.getText()), Integer.parseInt(fieldHeightGen.getText()), foregroundColor, backgroundColor);
+        if(genQRCodeImg != null) {
             imgQRCodeGen.setImage(genQRCodeImg);
+        }
     }
 
     @FXML

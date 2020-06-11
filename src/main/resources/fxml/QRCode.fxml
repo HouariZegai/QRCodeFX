@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXColorPicker?>
 <?import com.jfoenix.controls.JFXTabPane?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import java.lang.String?>
@@ -32,46 +33,63 @@
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </padding>
                         </HBox>
-                        <StackPane>
+                        <HBox spacing="10.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <HBox maxWidth="-Infinity" spacing="10.0" StackPane.alignment="CENTER_LEFT">
+                              <VBox spacing="14.0">
                                  <children>
                                     <JFXTextField fx:id="fieldWidthGen" promptText="Width" styleClass="field-size" />
                                     <JFXTextField fx:id="fieldHeightGen" promptText="Height" styleClass="field-size" />
-                                    <JFXButton onAction="#onGenerate" text="Generate">
-                                       <styleClass>
-                                          <String fx:value="btn" />
-                                          <String fx:value="btn-success" />
-                                       </styleClass>
-                                    </JFXButton>
+                                    <VBox spacing="5.0">
+                                       <children>
+                                          <Label styleClass="lbl" text="Foreground" />
+                                          <JFXColorPicker fx:id="colorPickerForeground" promptText="Color" style="-fx-pref-width: 90px;" styleClass="field-size" />
+                                       </children>
+                                    </VBox>
+                                    <VBox spacing="5.0">
+                                       <children>
+                                          <Label styleClass="lbl" text="Background" />
+                                          <JFXColorPicker fx:id="colorPickerBackground" promptText="Color" style="-fx-pref-width: 90px;" styleClass="field-size" />
+                                       </children>
+                                    </VBox>
                                  </children>
+                              </VBox>
+                              <HBox spacing="10.0" styleClass="box-header" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label styleClass="box-title" text="Output" />
+                                    <ImageView fx:id="imgQRCodeGen" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
                               </HBox>
-                              <JFXButton onAction="#onExportGen" text="Export" StackPane.alignment="CENTER_RIGHT">
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" spacing="10.0">
+                           <children>
+                              <JFXButton onAction="#onGenerate" style="-fx-pref-width: 90px;" text="Generate">
+                                 <styleClass>
+                                    <String fx:value="btn" />
+                                    <String fx:value="btn-success" />
+                                    <String fx:value="field" />
+                                 </styleClass>
+                              </JFXButton>
+                              <JFXButton onAction="#onExportGen" style="-fx-pref-width: 90px;" text="Export">
                                  <styleClass>
                                     <String fx:value="btn" />
                                     <String fx:value="btn-primary" />
                                  </styleClass>
                               </JFXButton>
                            </children>
-                           <padding>
-                              <Insets top="10.0" />
-                           </padding>
-                        </StackPane>
-                        <HBox spacing="10.0" styleClass="box-header">
-                           <children>
-                              <Label styleClass="box-title" text="Output" />
-                              <ImageView fx:id="imgQRCodeGen" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                           </children>
-                           <padding>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                           </padding>
                         </HBox>
                      </children>
                      <VBox.margin>
                         <Insets top="10" />
                      </VBox.margin>
                      <padding>
-                        <Insets left="20.0" right="20.0" top="20.0" />
+                        <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
                      </padding>
                   </VBox>
                </content>
@@ -116,7 +134,7 @@
                               <Insets top="10.0" />
                            </padding>
                         </StackPane>
-                        <HBox spacing="10.0" styleClass="box-header">
+                        <HBox spacing="10.0" styleClass="box-header" VBox.vgrow="ALWAYS">
                            <children>
                               <Label styleClass="box-title" text="Output" />
                               <TextArea fx:id="areaResultReader" prefHeight="150.0" prefWidth="100.0" promptText="Type your text here.." styleClass="box-area" wrapText="true" HBox.hgrow="ALWAYS" />
@@ -124,6 +142,9 @@
                            <padding>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </padding>
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
                         </HBox>
                      </children>
                      <VBox.margin>

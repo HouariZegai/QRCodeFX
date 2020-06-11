@@ -1,14 +1,17 @@
 * {
-    -fx-font-family: Tahoma
+    -fx-font-family: Tahoma;
+    -color-primary: #222831;
+    -color-secondary: #00adb5;
+    -color-primary-light: #393e46;
 }
 
 .root {
-    -fx-background-color: #FFF
+    -fx-background-color: -color-primary
 }
 
 .title {
     -fx-font-size: 20px;
-    -fx-text-fill: linear-gradient(from 0% 0% to 100% 200%, repeat, aqua 0%, #2196f3 50%)
+    -fx-text-fill: -color-secondary
 }
 
 /* Start jfxtabpane */
@@ -22,11 +25,11 @@
 }
 
 .jfx-tab-pane .tab-header-background {
-    -fx-background-color: #EEE;
+    -fx-background-color: -color-primary;
 }
 
 .jfx-tab-pane .tab-selected-line {
-    -fx-background-color: #2196f3;
+    -fx-background-color: -color-secondary;
 }
 
 .jfx-tab-pane .tab {
@@ -36,7 +39,7 @@
 .jfx-tab-pane .tab .tab-label {
     -fx-alignment: CENTER;
     -fx-font-family: Tahoma;
-    -fx-text-fill: #2196f3;
+    -fx-text-fill: -color-secondary;
     -fx-font-size: 16px;
     -fx-font-weight: normal;
 }
@@ -44,7 +47,7 @@
 .tab:selected .tab-label {
     -fx-alignment: CENTER;
     -fx-font-family: Tahoma;
-    -fx-text-fill: #2196f3;
+    -fx-text-fill: -color-secondary;
     -fx-font-size: 16px;
     -fx-font-weight: normal;
 }
@@ -52,18 +55,23 @@
 /* End jfxtabpane */
 
 .box-header {
-    -fx-background-color: #EFEFEF;
+    -fx-background-color: -color-primary-light;
     -fx-effect: dropshadow(three-pass-box, rgba(100,100,100,1), 2, 0, 0, 0);
     -fx-background-radius: 2;
 }
 
 .box-title {
     -fx-font-size: 16px;
-    -fx-text-fill: linear-gradient(from 0% 0% to 100% 200%, repeat, aqua 0%, #2196f3 50%);
+    -fx-text-fill: -color-secondary
 }
 
 .box-area {
     -fx-font-size: 15px;
+    -fx-text-fill: #DDD;
+}
+
+.box-area .content {
+    -fx-background-color: -color-primary;
 }
 
 .btn {
@@ -76,21 +84,23 @@
     -fx-cursor: hand
 }
 
-.btn-success {
-    -fx-background-color: #4285f4;
-}
+.btn-success {-fx-background-color: #4285f4;}
 
-.btn-primary {
-    -fx-background-color: #FF8800;
-}
+.btn-primary {-fx-background-color: #FF8800;}
 
 .field-size {
     -fx-pref-width: 80px;
     -fx-pref-height: 35px;
     -fx-font-size: 15px;
     -jfx-label-float: true;
-    -jfx-unfocus-color: #666;
-    -jfx-focus-color: #2196f3;
+    -fx-prompt-text-fill: #AAA;
+    -jfx-unfocus-color: #AAA;
+    -jfx-focus-color: -color-secondary;
+}
+
+.lbl {
+    -fx-text-fill: #AAA;
+    -fx-font-size: 15px;
 }
 
 /* Start JFXSnackbar (toast) */
