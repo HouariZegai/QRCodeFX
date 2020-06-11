@@ -13,7 +13,7 @@
 #### Screenshoot
 | QR Code Generator  | QR Code Reader |
 |:-------------------:|:-------------------:|
-| ![screenshot](screenshots/v0.1/qrcode_generator.png) | ![screenshot](screenshots/v0.1/qrcode_reader.png) |
+| ![screenshot](screenshots/v1/qrcode_generator.png) | ![screenshot](screenshots/v1/qrcode_reader.png) |
 
 #### Contributing 💡
 If you want to contribute to this project and make it better with new ideas, your pull request is very welcomed.
